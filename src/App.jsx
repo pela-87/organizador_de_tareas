@@ -3,16 +3,22 @@ import { MagicMotion } from "react-magic-motion"
 import { useState, useEffect } from 'react'
 import Formulario from './components/Formulario'
 import Tarea from "./components/Tarea"
+import TareaFinalizada from "./components/Tarea_Finalizada"
 import 'react-toastify/dist/ReactToastify.css'
+// import Tarea_Finalizada from "./components/Tarea_Finalizada"
 
 function App() {
 
   const [tarea, setTarea] = useState({})
   const [tareas, setTareas] = useState([])
+  const [tareaFinalizada, setTareaFinalizada] = useState([])
+  const [tareasFinalizadas, setTareasFinalizadas] = useState([])
 
   useEffect(() => {
     const tareasStorage = JSON.parse(localStorage.getItem('tareas')) ?? []
     setTareas(tareasStorage)
+    const tareasFinalizadasStorage = JSON.parse(localStorage.getItem('tareasFinalizadas')) ?? []
+    setTareasFinalizadas(tareasFinalizadasStorage)
   }, [])
 
   return (
@@ -32,8 +38,8 @@ function App() {
         </section>
         <section className="max-w-[80%] w-[20rem] flex flex-col gap-2">
         <h2 className="text-xl font-bold text-red-600 text-center">Tareas Finalizadas</h2>
-          {tareas.map(c => {
-        return <Tarea key={c.id} tarea={c} setTarea={setTarea} tareas={tareas} setTareas={setTareas} />
+          {tareasFinalizadas.map(c => {
+        return <TareaFinalizada key={c.id} tareaFinalizada={c} setTareaFinalizada={setTareaFinalizada} tareasFinalizadas={tareasFinalizadas} setTareasFinalizadas={setTareasFinalizadas} />
       })}
         </section>
       </main>

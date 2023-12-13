@@ -126,14 +126,14 @@ const Formulario = ({ tarea, setTarea, tareas, setTareas }) => {
     }
 
     return (
-        <Form title={id ? "Actualizar Tarea" : 'Nueva Tarea'} onSubmit={handleSubmit} className="sticky top-10">
+        <Form title={id ? "Actualizar Tarea" : 'Nueva Tarea'} onSubmit={handleSubmit} className="sticky top-8">
             <Field name='Titulo' type='text' value={tituloTarea} onChange={e => setTituloTarea(e.target.value)} placeholder="Titulo de la tarea" />
             <Field name="Fecha" type="date" value={fecha} onChange={e => setFecha(e.target.value)} min={`${minDate}`} />
             <Field name="Hora" type="time" value={hora} onChange={e => setHora(e.target.value)} min="08:00:00" max={`21:00:00`} step={30 * 60} />            
             <Field name='Telefono' type='number' value={telefono} onChange={(e) => setTelefono(e.target.value)} min='0' placeholder='Telefono' />
             <Field name='Descripcion' type='input' value={descripcion} onChange={e => setDescripcion(e.target.value)} placeholder="Descripcion de la tarea" />
-            <input type='submit' value={id ? "Actualizar" : "Agregar"} className='cursor-pointer p-2 text-center bg-slate-900 font-bold uppercase text-white rounded shadow' />
-            {id && <button onClick={handleCancel}>Cancel</button>}
+            <input type='submit' value={id ? "Actualizar" : "Agregar"} className='cursor-pointer p-1 text-center bg-slate-900 font-bold uppercase text-white rounded shadow' />
+            {id && <button className='text-white bg-red-600 p-1 rounded uppercase font-bold' onClick={handleCancel}>Cancelar</button>}
         </Form>
     )
 

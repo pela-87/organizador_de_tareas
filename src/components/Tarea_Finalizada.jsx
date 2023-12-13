@@ -1,23 +1,23 @@
-const Tarea = ({ tarea, setTarea, tareas, setTareas }) => {
-    const { id, tituloTarea, fecha, hora, telefono, descripcion } = tarea
+const Tarea_Finalizada = ({ tareaFinalizada, setTareaFinalizada, tareasFinalizadas, setTareasFinalizadas }) => {
+    const { id, tituloTarea, fecha, hora, telefono, descripcion } = tareaFinalizada
 
     const handleEdit = () => {
 
-        setTarea(tarea)
+        setTareaFinalizada(tareaFinalizada)
     }
 
     const handleDelete = () => {
         const sure = confirm('Seguro deseas eliminar esta tarea')
 
         if (sure) {
-            const tareasFiltradas = tareas.filter(c => {
+            const tareasFinalizadasFiltradas = tareasFinalizadas.filter(c => {
                 if (c.id !== id) {
                     return c
                 }
             })
 
-            setTareas(tareasFiltradas)
-            localStorage.setItem('tareas', JSON.stringify(tareasFiltradas))
+            setTareasFinalizadas(tareasFinalizadasFiltradas)
+            localStorage.setItem('tareasFinalizadas', JSON.stringify(tareasFinalizadasFiltradas))
         }
     }
 
@@ -26,13 +26,8 @@ const Tarea = ({ tarea, setTarea, tareas, setTareas }) => {
             <summary className='text-xl text-pink-950 font-semibold flex justify-between items-center select-none cursor-pointer'>Tarea: {tituloTarea}
                 <div className='flex gap-2'>
                     <button onClick={handleEdit}>
-                        <span className="material-symbols-outlined text-gray-900" title="Completar Tarea">
-                            task_alt
-                        </span>
-                    </button>
-                    <button onClick={handleEdit}>
-                        <span className="material-symbols-outlined text-gray-900" title="Editar Tarea">
-                            edit
+                        <span className="material-symbols-outlined text-gray-900" title="Restaurar Tarea">
+                            settings_backup_restore
                         </span>
                     </button>
                     <button onClick={handleDelete}>
@@ -54,4 +49,4 @@ const Tarea = ({ tarea, setTarea, tareas, setTareas }) => {
     )
 }
 
-export default Tarea
+export default Tarea_Finalizada

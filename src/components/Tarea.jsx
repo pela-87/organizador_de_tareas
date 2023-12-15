@@ -1,5 +1,6 @@
-const Tarea = ({ tarea, setTarea, tareas, setTareas }) => {
+const Tarea = ({ tarea, setTarea, tareas, setTareas, tareaFinaliada, setTareaFinalizada }) => {
     const { id, tituloTarea, fecha, hora, telefono, descripcion } = tarea
+    const { idF, tituloTareaF, fechaF, horaF, telefonoF, descripcionF } = tareaFinalizada
 
     const handleEdit = () => {
 
@@ -21,11 +22,32 @@ const Tarea = ({ tarea, setTarea, tareas, setTareas }) => {
         }
     }
 
+    const handleConfirm = () => {
+        // const sure = confirm('Seguro deseas eliminar esta tarea')
+
+        //ACA TENGO QUE AGREGAR LA TAREA EN LAS FINALIZADAS.
+        //setTareaFinalizada(tareaFinaliada)
+       
+        
+        //ACA ELIMINO EL REGISTRO DE LAS PENDIENTES.
+        
+        // if (sure) {
+            const tareasFiltradas = tareas.filter(c => {
+                if (c.id !== id) {
+                    return c
+                }
+            })
+
+            setTareas(tareasFiltradas)
+            localStorage.setItem('tareas', JSON.stringify(tareasFiltradas))
+        // }
+    }
+
     return (
         <details className='w-full bg-slate-100 p-3 rounded shadow even:bg-slate-200'>
             <summary className='text-xl text-pink-950 font-semibold flex justify-between items-center select-none cursor-pointer'>Tarea: {tituloTarea}
                 <div className='flex gap-2'>
-                    <button onClick={handleEdit}>
+                    <button onClick={handleConfirm}>
                         <span className="material-symbols-outlined text-gray-900" title="Completar Tarea">
                             task_alt
                         </span>

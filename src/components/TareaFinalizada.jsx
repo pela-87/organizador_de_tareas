@@ -1,17 +1,17 @@
-const Tarea_Finalizada = ({ tareaFinalizada, setTareaFinalizada, tareasFinalizadas, setTareasFinalizadas }) => {
-    const { id, tituloTarea, fecha, hora, telefono, descripcion } = tareaFinalizada
+const TareaFinalizada = ({ tareaFinalizada, setTareaFinalizada, tareasFinalizadas, setTareasFinalizadas }) => {
+    const { idF, tituloTareaF, fechaF, horaF, telefonoF, descripcionF } = tareaFinalizada
 
-    const handleEdit = () => {
+    const handleEditF = () => {
 
         setTareaFinalizada(tareaFinalizada)
     }
 
-    const handleDelete = () => {
+    const handleDeleteF = () => {
         const sure = confirm('Seguro deseas eliminar esta tarea')
 
         if (sure) {
             const tareasFinalizadasFiltradas = tareasFinalizadas.filter(c => {
-                if (c.id !== id) {
+                if (c.idF !== idF) {
                     return c
                 }
             })
@@ -23,14 +23,14 @@ const Tarea_Finalizada = ({ tareaFinalizada, setTareaFinalizada, tareasFinalizad
 
     return (
         <details className='w-full bg-slate-100 p-3 rounded shadow even:bg-slate-200'>
-            <summary className='text-xl text-pink-950 font-semibold flex justify-between items-center select-none cursor-pointer'>Tarea: {tituloTarea}
+            <summary className='text-xl text-pink-950 font-semibold flex justify-between items-center select-none cursor-pointer'>Tarea: {tituloTareaF}
                 <div className='flex gap-2'>
-                    <button onClick={handleEdit}>
+                    <button onClick={handleEditF}>
                         <span className="material-symbols-outlined text-gray-900" title="Restaurar Tarea">
                             settings_backup_restore
                         </span>
                     </button>
-                    <button onClick={handleDelete}>
+                    <button onClick={handleDeleteF}>
                         <span className="material-symbols-outlined text-gray-900" title="Eliminar Tarea">
                             delete
                         </span>
@@ -38,15 +38,15 @@ const Tarea_Finalizada = ({ tareaFinalizada, setTareaFinalizada, tareasFinalizad
                 </div>
             </summary>
             <div className='p-4'>
-                <p className='text-xl font-bold text-lime-700'><span>{`Horario: ${new Date(fecha + 'T' + hora).toLocaleDateString('es-Es', {
+                <p className='text-xl font-bold text-lime-700'><span>{`Horario: ${new Date(fechaF + 'T' + horaF).toLocaleDateString('es-Es', {
                     hour: 'numeric',
                     minute: 'numeric',
                 })}hrs`}</span></p>
-                <p className='text-lime-700'>Telefono: {telefono}</p>
-                <p className='text-lime-700'>Descripcion: {descripcion}</p>
+                <p className='text-lime-700'>Telefono: {telefonoF}</p>
+                <p className='text-lime-700'>Descripcion: {descripcionF}</p>
             </div>
         </details>
     )
 }
 
-export default Tarea_Finalizada
+export default TareaFinalizada

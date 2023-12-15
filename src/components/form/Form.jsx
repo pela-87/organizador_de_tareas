@@ -1,3 +1,4 @@
+//Form es el componente del formulario.
 const Form = ({ children, title, onSubmit, className }) => {
 
     return (

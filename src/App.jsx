@@ -3,9 +3,8 @@ import { MagicMotion } from "react-magic-motion"
 import { useState, useEffect } from 'react'
 import Formulario from './components/Formulario'
 import Tarea from "./components/Tarea"
-import TareaFinalizada from "./components/Tarea_Finalizada"
+import TareaFinalizada from "./components/TareaFinalizada"
 import 'react-toastify/dist/ReactToastify.css'
-// import Tarea_Finalizada from "./components/Tarea_Finalizada"
 
 function App() {
 

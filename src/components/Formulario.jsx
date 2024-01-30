@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 import Form from './form/Form'
 import Field from './form/Field'
 
-const Formulario = ({ tarea, setTarea, tareas, setTareas }) => {
+const Formulario = ({ tarea, setTarea, tareas, setTareas}) => {
     const [id, setId] = useState(null)
     const [tituloTarea, setTituloTarea] = useState('')
     const [fecha, setFecha] = useState('')

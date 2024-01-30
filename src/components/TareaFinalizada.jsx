@@ -1,5 +1,5 @@
 const TareaFinalizada = ({ tareaFinalizada, setTareaFinalizada, tareasFinalizadas, setTareasFinalizadas }) => {
-    const { idF, tituloTareaF, fechaF, horaF, telefonoF, descripcionF } = tareaFinalizada
+    const { id, tituloTarea, fecha, hora, telefono, descripcion } = tareaFinalizada
 
     const handleEditF = () => {
 
@@ -11,7 +11,7 @@ const TareaFinalizada = ({ tareaFinalizada, setTareaFinalizada, tareasFinalizada
 
         if (sure) {
             const tareasFinalizadasFiltradas = tareasFinalizadas.filter(c => {
-                if (c.idF !== idF) {
+                if (c.id !== id) {
                     return c
                 }
             })
@@ -23,7 +23,7 @@ const TareaFinalizada = ({ tareaFinalizada, setTareaFinalizada, tareasFinalizada
 
     return (
         <details className='w-full bg-slate-100 p-3 rounded shadow even:bg-slate-200'>
-            <summary className='text-xl text-pink-950 font-semibold flex justify-between items-center select-none cursor-pointer'>Tarea: {tituloTareaF}
+            <summary className='text-xl text-pink-950 font-semibold flex justify-between items-center select-none cursor-pointer'>Tarea: {tituloTarea}
                 <div className='flex gap-2'>
                     <button onClick={handleEditF}>
                         <span className="material-symbols-outlined text-gray-900" title="Restaurar Tarea">
@@ -38,12 +38,12 @@ const TareaFinalizada = ({ tareaFinalizada, setTareaFinalizada, tareasFinalizada
                 </div>
             </summary>
             <div className='p-4'>
-                <p className='text-xl font-bold text-lime-700'><span>{`Horario: ${new Date(fechaF + 'T' + horaF).toLocaleDateString('es-Es', {
+                <p className='text-xl font-bold text-lime-700'><span>{`Horario: ${new Date(fecha + 'T' + hora).toLocaleDateString('es-Es', {
                     hour: 'numeric',
                     minute: 'numeric',
                 })}hrs`}</span></p>
-                <p className='text-lime-700'>Telefono: {telefonoF}</p>
-                <p className='text-lime-700'>Descripcion: {descripcionF}</p>
+                <p className='text-lime-700'>Telefono: {telefono}</p>
+                <p className='text-lime-700'>Descripcion: {descripcion}</p>
             </div>
         </details>
     )

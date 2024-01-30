@@ -1,7 +1,9 @@
-const Tarea = ({ tarea, setTarea, tareas, setTareas, tareaFinaliada, setTareaFinalizada }) => {
-    const { id, tituloTarea, fecha, hora, telefono, descripcion } = tarea
-    const { idF, tituloTareaF, fechaF, horaF, telefonoF, descripcionF } = tareaFinalizada
 
+const Tarea = ({ tarea, setTarea, tareas, setTareas, tareaFinalizada, tareasFiltradas, setTareasFinalizadas}) => {
+    const { id, tituloTarea, fecha, hora, telefono, descripcion } = tarea
+    //const { idF, tituloTareaF, fechaF, horaF, telefonoF, descripcionF } = tareaFinalizada
+
+    
     const handleEdit = () => {
 
         setTarea(tarea)
@@ -23,15 +25,39 @@ const Tarea = ({ tarea, setTarea, tareas, setTareas, tareaFinaliada, setTareaFin
     }
 
     const handleConfirm = () => {
+        console.log("Entra al confirmar de tarea pendiente.")        
         // const sure = confirm('Seguro deseas eliminar esta tarea')
-
+        //const { idF, tituloTareaF, fechaF, horaF, telefonoF, descripcionF } = tareaFinalizada
         //ACA TENGO QUE AGREGAR LA TAREA EN LAS FINALIZADAS.
         //setTareaFinalizada(tareaFinaliada)
+        /*
+        const nuevaTareaFinalizada = {
+            id,
+            tituloTarea,
+            fecha,
+            hora,
+            telefono,
+            descripcion
+        }
+        */
+        //clean()
+        /*
+        const tareasFinalizadasUpdated = [...tareasFiltradas, tarea]
+        tareasFinalizadasUpdated.sort((a, b) => {
+            const ca = new Date(a.fecha)
+            const cb = new Date(b.fecha)
+            if (ca > cb) return 1
+            else if (ca < cb) return -1
+            else return 0
+        })
+        setTareasFinalizadas(tareasFinalizadasUpdated)
+        localStorage.setItem('tareasFinalizadas', JSON.stringify(tareasFinalizadasUpdated))
        
-        
+        */
         //ACA ELIMINO EL REGISTRO DE LAS PENDIENTES.
         
         // if (sure) {
+            /*
             const tareasFiltradas = tareas.filter(c => {
                 if (c.id !== id) {
                     return c
@@ -40,6 +66,7 @@ const Tarea = ({ tarea, setTarea, tareas, setTareas, tareaFinaliada, setTareaFin
 
             setTareas(tareasFiltradas)
             localStorage.setItem('tareas', JSON.stringify(tareasFiltradas))
+            */
         // }
     }
 
